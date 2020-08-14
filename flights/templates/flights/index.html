@@ -1,0 +1,26 @@
+{% extends "flights/layout.html" %}
+
+{% block title %}
+Flights
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h2>
+                Flights list
+            </h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {% for flight in flights %}
+                    <li class="list-group-item">
+                    <a class="btn btn-primary" href="{% url 'flights:flight' flight.id %}">
+                    Flight number ARSA {{ flight }}. Duration : {{ flight.duration }} minutes.
+                    </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
