@@ -1,0 +1,26 @@
+{% extends "users/layout.html" %}
+
+{% block title %}
+    User
+{% endblock %}
+
+{% block content %}
+    <div class="card bg-dark text-white">
+        <div class="card-header">
+            <h2>Welcome, {{ request.user.first_name }} !</h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group item">
+                    Pseudo : {{ request.user.username }}
+                </li>
+                <li class="list-group item">
+                    Email : {{ request.user.email }}
+                </li>
+            </ul>
+            <button class="btn btn-primary">
+                <a class="text-white" href="{% url 'users:logout' %}">Logout</a>
+            </button>
+        </div>
+    </div>
+{% endblock %}

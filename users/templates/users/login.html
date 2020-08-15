@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block content %}
+    {% if flash %}
+        <div class="alert alert-danger" role="alert">
+            {{ flash }}
+        </div>
+    {% endif %}
+    {% if unlogged %}
+        <div class="alert alert-success" role="alert">
+            {{ unlogged }}
+        </div>
+    {% endif %}
     <form action="{% url 'users:login' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
